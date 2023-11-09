@@ -20,18 +20,27 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import python from "./tech/python.png";
+import sql from "./tech/sql.png";
+import java from "./tech/java.png";
+import c from "./tech/c.png";
+
+
 
 import kp from "./company/kp.jpg";
 import topline from "./company/topline.png";
 import uber from "./company/uber.png";
 import psg from "./company/psg.png";
+import vosyn from "./company/vosyn.jpg";
 
 import newsAg from "./newsAg.png";
 import apw from "./apw.png";
 import chatapp from "./chatapp.png";
+import herobg from "./herobg.png";
 
 export {
   logo,
+  herobg,
   backend,
   creator,
   mobile,
@@ -59,4 +68,9 @@ export {
   newsAg,
   apw,
   chatapp,
+  vosyn,
+  c,
+  python,
+  java,
+  sql,
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { services } from "../constants";
@@ -19,7 +19,7 @@ const ServiceCard = ({ index, title, icon }) => (
           scale: 1,
           speed: 450,
         }}
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
+        className=' bg-gray-800 rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
       >
         <img
           src={icon}
@@ -27,7 +27,7 @@ const ServiceCard = ({ index, title, icon }) => (
           className='w-16 h-16 object-contain'
         />
 
-        <h3 className='text-white text-[20px] font-bold text-center'>
+        <h3 className=' text-slate-500 text-[20px] font-bold text-center'>
           {title}
         </h3>
       </div>
@@ -49,9 +49,8 @@ const About = () => {
       >
         I'm a software engineer with experience in Python and
         JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm an innovator and work closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems.
+        Three.js. I'm an innovator and work on AI conrinusouly. I like to work on projects that
+        others wouldn't dare touch.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

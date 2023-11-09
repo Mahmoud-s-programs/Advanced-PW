@@ -4,16 +4,13 @@ import {
   creator,
   web,
   javascript,
-  typescript,
   html,
   css,
   reactjs,
-  redux,
   tailwind,
   nodejs,
   mongodb,
   git,
-  figma,
   docker,
   kp,
   topline,
@@ -23,6 +20,10 @@ import {
   apw,
   chatapp,
   threejs,
+  vosyn,
+  sql,
+  python,
+  java,
 } from "../assets";
 
 export const navLinks = [
@@ -54,7 +55,7 @@ const services = [
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "AI Developer",
     icon: creator,
   },
 ];
@@ -73,16 +74,16 @@ const technologies = [
     icon: javascript,
   },
   {
-    name: "TypeScript",
-    icon: typescript,
+    name: "Java",
+    icon: java,
   },
   {
     name: "React JS",
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
+    name: "SQL Server",
+    icon: sql,
   },
   {
     name: "Tailwind CSS",
@@ -105,8 +106,8 @@ const technologies = [
     icon: git,
   },
   {
-    name: "figma",
-    icon: figma,
+    name: "Python",
+    icon: python,
   },
   {
     name: "docker",
@@ -115,6 +116,20 @@ const technologies = [
 ];
 
 const experiences = [
+  {
+    title: "Software Development Team Lead",
+    company_name: "Vosyn Inc",
+    icon: vosyn,
+    iconBg: "#E6DEDD",
+    date: "July 2023 - October 2023",
+    points: [
+      "Led a 25-member team in developing a voice synthesis platform using Python, TensorFlow, and PyTorch.",
+      "Built an MVP in 5 weeks using Python and Flask, exceeding industry speed benchmarks.",
+      "Integrated PaLM2 Large Language Model, VALL-E TTS and Transformers into our voice synthesis platform.",
+      "Maintained 100% transparency, providing weekly GCP and Git reports to 5+ stakeholders.",
+      "Optimized workflow with Jira and Docker, boosting team output by 20% and using TensorBoard for monitoring.",
+    ],
+  },
   {
     title: "Driver",
     company_name: "Uber",
@@ -158,7 +173,7 @@ const experiences = [
     company_name: "Kp Components",
     icon: kp,
     iconBg: "#E6DEDD",
-    date: "April 2023 - Present",
+    date: "April 2023 - July 2023",
     points: [
       "Proficiently operated and maintained a variety of molding machines to ensure efficient production.",
       "Performed regular checks and measurements on produced parts to ensure adherence to specifications",
@@ -171,7 +186,7 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "Mahmoud has helped me emmensly during the winter of 2022 where we built projects together",
+      "Mahmoud has helped me emmensly during the winter of 2022 when we built projects together",
     name: "Ali Alsalkhadi ",
     designation: "Software developer",
     company: "University of Windsor",

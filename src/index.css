@@ -20,33 +20,33 @@
 }
 
 .black-gradient {
-  background: #000000; /* fallback for old browsers */
+  background: #cbcbd1; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #434343,
-    #000000
+    #f3e9e9,
+    #fcfbfb
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #434343,
-    #000000
+    #9481c1,
+    #faf9f9
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .violet-gradient {
-  background: #804dee;
-  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
+  background: #e5e1ef;
+  background: linear-gradient(-90deg, #7a7684 0%, rgba(161, 141, 203, 0) 100%);
   background: -webkit-linear-gradient(
     -90deg,
     #804dee 0%,
-    rgba(60, 51, 80, 0) 100%
+    rgba(94, 21, 232, 0) 100%
   );
 }
 
 .green-pink-gradient {
   background: "#00cea8";
-  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
-  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  background: linear-gradient(90.13deg, #ce6400 1.9%, #1a0727 97.5%);
+  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #200a2e 97.5%);
 }
 
 .orange-text-gradient {
@@ -193,9 +193,9 @@
       -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
   }
   87.5% {
-    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2),
-      1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
-      2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
+    box-shadow: 0em -2.6em 0em 0em rgba(6, 80, 122, 0.2),
+      1.8em -1.8em 0 0em rgba(125, 64, 64, 0.2),
+      2.5em 0em 0 0em rgba(176, 18, 50, 0.2),
       1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2),
       0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
