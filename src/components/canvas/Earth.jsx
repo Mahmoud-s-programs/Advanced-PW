@@ -8,7 +8,7 @@ const Earth = () => {
   const earth = useGLTF("./blackhole/scene.gltf");
 
   return (
-    <primitive object={earth.scene} scale={0.5} position-y={0} rotation-y={0} />
+    <primitive object={earth.scene} scale={0.4} position-y={0} rotation-y={0} />
   );
 };
 
