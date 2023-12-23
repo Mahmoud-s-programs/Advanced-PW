@@ -143,16 +143,16 @@ const experiences = [
     ],
   },
   {
-    title: "Machine Operator",
-    company_name: "Precision Stamping Group",
+    title: "MERN Stack Developer",
+    company_name: "KEV Group",
     icon: psg,
     iconBg: "#E6DEDD",
     date: "May 2022 - August 2022",
     points: [
-      "Documented daily production data, identifying trends and potential areas for improvement.",
-      "Adapted quickly to new equipment and technology through continuous learning and self-improvement.",
-      "Performed routine quality checks to ensure production of high-quality products in accordance with company standards.",
-      "Trained new operators in safe and efficient machine operation, fostering a culture of knowledge sharing.",
+      "Utilized the MERN stack (MongoDB, Express.js, React, Node.js) for full-stack web development, ensuring robust and scalable application architecture.",
+      "Wrote and maintained high-quality code, following best coding practices to ensure software reliability and maintainability.",
+      "Conducted code reviews to uphold coding standards and improve overall code quality across projects.",
+      "Kept up to date with the latest trends and technologies in web development to apply modern solutions.",
     ],
   },
   {
