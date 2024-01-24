@@ -25,8 +25,6 @@ import sql from "./tech/sql.png";
 import java from "./tech/java.png";
 import c from "./tech/c.png";
 
-
-
 import kp from "./company/kp.jpg";
 import topline from "./company/topline.png";
 import uber from "./company/uber.png";
@@ -37,6 +35,9 @@ import newsAg from "./newsAg.png";
 import apw from "./apw.png";
 import chatapp from "./chatapp.png";
 import herobg from "./herobg.png";
+import calc from "./calc.png";
+import basicportfolio from "./basicportfolio.png";
+import solarsystem from "./solarsystem.png";
 
 export {
   logo,
@@ -73,4 +74,7 @@ export {
   python,
   java,
   sql,
+  calc,
+  basicportfolio,
+  solarsystem,
 };

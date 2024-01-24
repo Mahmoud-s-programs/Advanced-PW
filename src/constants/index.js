@@ -24,6 +24,9 @@ import {
   sql,
   python,
   java,
+  calc,
+  basicportfolio,
+  solarsystem,
 } from "../assets";
 
 export const navLinks = [
@@ -273,6 +276,61 @@ const projects = [
     ],
     image: chatapp,
     source_code_link: "https://github.com/Mahmoud-s-programs/Chat-App",
+  },
+  {
+    name: "Web Calculator",
+    description:
+      "Do your math calculations on the web for free with an interesting animated background",
+    tags: [
+      {
+        name: "css",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "html",
+        color: "green-text-gradient",
+      },
+    ],
+    image: calc,
+    source_code_link: "https://github.com/Mahmoud-s-programs/Web-Calculator",
+  },
+  {
+    name: "Baisc Portfolio",
+    description:
+      "Use this template if you are not a developer or if you are a junior developer for, it is easy to modify",
+    tags: [
+      {
+        name: "css",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "html",
+        color: "green-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "pink-text-gradient",
+      }
+    ],
+    image: basicportfolio,
+    source_code_link: "https://github.com/Mahmoud-s-programs/basic-portfolio",
+  },
+  {
+    name: "Solar System",
+    description:
+      "Are you a space nerd like me? Well now you can have the entire solar system on your computer. Follow the steps in the readme file to run the program",
+    tags: [
+      {
+        name: "java",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "java3D",
+        color: "green-text-gradient",
+      },
+    ],
+    image: solarsystem,
+    source_code_link: "https://github.com/Mahmoud-s-programs/Solar-System-using-java3D",
   },
 ];
 
