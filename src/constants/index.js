@@ -214,7 +214,7 @@ const testimonials = [
   },
   {
     testimonial:
-      "Thanks to Mahmoud, I can confidently showcase the websites he and I developed",
+      "Mahmoud and I worked on so many projects together and I am grateful that we did",
     name: "Zahra Shinneeb",
     designation: "Software Engineer",
     company: "University of Windsor",
