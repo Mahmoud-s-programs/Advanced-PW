@@ -302,6 +302,27 @@ const projects = [
     ],
     image: calc,
     source_code_link: "https://github.com/Mahmoud-s-programs/Web-Calculator",
+  },
+  {
+    name: "Baisc Portfolio",
+    description:
+      "Use this template if you are not a developer or if you are a junior developer for, it is easy to modify",
+    tags: [
+      {
+        name: "css",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "html",
+        color: "green-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "pink-text-gradient",
+      }
+    ],
+    image: basicportfolio,
+    source_code_link: "https://github.com/Mahmoud-s-programs/basic-portfolio",
   },  
   {
     name: "Solar System",
@@ -320,28 +341,6 @@ const projects = [
     image: solarsystem,
     source_code_link: "https://github.com/Mahmoud-s-programs/Solar-System-using-java3D",
   },
-  {
-    name: "Image Generator",
-    description:
-      "Convert between different types of images",
-    tags: [
-      {
-        name: "css",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "html",
-        color: "green-text-gradient",
-      },
-      {
-        name: "javascript",
-        color: "pink-text-gradient",
-      }
-    ],
-    image: imageconverter,
-    source_code_link: "https://github.com/Mahmoud-s-programs/Image-Converter",
-  },
-  
 ];
 
 export { services, technologies, experiences, testimonials, projects };
