@@ -38,6 +38,7 @@ import herobg from "./herobg.png";
 import calc from "./calc.png";
 import basicportfolio from "./basicportfolio.png";
 import solarsystem from "./solarsystem.png";
+import imageconverter from "./imageconverter.png";
 
 export {
   logo,
@@ -77,4 +78,5 @@ export {
   calc,
   basicportfolio,
   solarsystem,
+  imageconverter,
 };

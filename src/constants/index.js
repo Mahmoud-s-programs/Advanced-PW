@@ -27,6 +27,7 @@ import {
   calc,
   basicportfolio,
   solarsystem,
+  imageconverter,
 } from "../assets";
 
 export const navLinks = [
@@ -211,6 +212,14 @@ const testimonials = [
     company: "University of Windsor",
     image: "https://freesvg.org/img/myAvatar.png",
   },
+  {
+    testimonial:
+      "Thanks to Mahmoud, I can confidently showcase the websites he and I developed",
+    name: "Zahra Shinneeb",
+    designation: "Software Engineer",
+    company: "University of Windsor",
+    image: "https://cdn4.vectorstock.com/i/1000x1000/21/63/avatar-a-young-woman-in-hijab-muslim-vector-29662163.jpg",
+  },
 ];
 
 const projects = [
@@ -293,28 +302,7 @@ const projects = [
     ],
     image: calc,
     source_code_link: "https://github.com/Mahmoud-s-programs/Web-Calculator",
-  },
-  {
-    name: "Baisc Portfolio",
-    description:
-      "Use this template if you are not a developer or if you are a junior developer for, it is easy to modify",
-    tags: [
-      {
-        name: "css",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "html",
-        color: "green-text-gradient",
-      },
-      {
-        name: "javascript",
-        color: "pink-text-gradient",
-      }
-    ],
-    image: basicportfolio,
-    source_code_link: "https://github.com/Mahmoud-s-programs/basic-portfolio",
-  },
+  },  
   {
     name: "Solar System",
     description:
@@ -332,6 +320,28 @@ const projects = [
     image: solarsystem,
     source_code_link: "https://github.com/Mahmoud-s-programs/Solar-System-using-java3D",
   },
+  {
+    name: "Image Generator",
+    description:
+      "Convert between different types of images",
+    tags: [
+      {
+        name: "css",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "html",
+        color: "green-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "pink-text-gradient",
+      }
+    ],
+    image: imageconverter,
+    source_code_link: "https://github.com/Mahmoud-s-programs/Image-Converter",
+  },
+  
 ];
 
 export { services, technologies, experiences, testimonials, projects };
