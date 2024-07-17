@@ -149,7 +149,7 @@ const experiences = [
   {
     title: "CEO",
     company_name: "TBD",
-    icon: voysn,
+    icon: vosyn,
     iconBg: "#E6DEDD",
     date: "TBD",
     points: [
