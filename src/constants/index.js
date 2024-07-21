@@ -211,9 +211,9 @@ const testimonials = [
   },
   {
     testimonial:
-      "Mahmoud and I worked on so many projects together and I am grateful that we did",
-    name: "Zahra Shinneeb",
-    designation: "Software Engineer",
+      "Mahmoud and I worked on a couple of projects together and I look forward to doing more.",
+    name: "Hala",
+    designation: "Student",
     company: "University of Windsor",
     image: "https://cdn4.vectorstock.com/i/1000x1000/21/63/avatar-a-young-woman-in-hijab-muslim-vector-29662163.jpg",
   },
