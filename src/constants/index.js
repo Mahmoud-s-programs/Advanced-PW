@@ -28,6 +28,7 @@ import {
   basicportfolio,
   solarsystem,
   imageconverter,
+  seeSpace,
 } from "../assets";
 
 export const navLinks = [
@@ -149,7 +150,7 @@ const experiences = [
   {
     title: "CEO",
     company_name: "TBD",
-    icon: vosyn,
+    icon: seeSpace,
     iconBg: "#E6DEDD",
     date: "TBD",
     points: [
