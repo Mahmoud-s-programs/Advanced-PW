@@ -30,6 +30,7 @@ import topline from "./company/topline.png";
 import uber from "./company/uber.png";
 import psg from "./company/psg.png";
 import vosyn from "./company/vosyn.jpg";
+import seeSpace from "./company/seeSpace.png";
 
 import newsAg from "./newsAg.png";
 import apw from "./apw.png";
@@ -79,4 +80,5 @@ export {
   basicportfolio,
   solarsystem,
   imageconverter,
+  seeSpace,
 };
