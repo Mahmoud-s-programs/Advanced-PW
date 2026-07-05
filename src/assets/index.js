@@ -25,8 +25,6 @@ import sql from "./tech/sql.png";
 import java from "./tech/java.png";
 import c from "./tech/c.png";
 
-
-
 import kp from "./company/kp.jpg";
 import topline from "./company/topline.png";
 import uber from "./company/uber.png";
@@ -38,6 +36,10 @@ import newsAg from "./newsAg.png";
 import apw from "./apw.png";
 import chatapp from "./chatapp.png";
 import herobg from "./herobg.png";
+import calc from "./calc.png";
+import basicportfolio from "./basicportfolio.png";
+import solarsystem from "./solarsystem.png";
+import imageconverter from "./imageconverter.png";
 
 export {
   logo,
@@ -74,5 +76,12 @@ export {
   python,
   java,
   sql,
+<<<<<<< HEAD
+=======
+  calc,
+  basicportfolio,
+  solarsystem,
+  imageconverter,
+>>>>>>> e93a9f1c94dc60d5661ac894d9e44356b279130e
   seeSpace,
 };

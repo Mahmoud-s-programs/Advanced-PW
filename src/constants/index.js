@@ -21,6 +21,11 @@ import {
   sql,
   python,
   java,
+  calc,
+  basicportfolio,
+  solarsystem,
+  imageconverter,
+  seeSpace,
 } from "../assets";
 
 export const navLinks = [
@@ -167,9 +172,37 @@ const experiences = [
     ],
   },
   {
+<<<<<<< HEAD
     title: "Machine Operator",
     company_name: "Accu-Staff",
     icon: psg,
+=======
+    title: "Driver",
+    company_name: "Uber",
+    icon: uber,
+    iconBg: "#383E56",
+    date: "March 2020 - April 2021",
+    points: [
+      "Providing excellent customer service by addressing passenger inquiries and resolving any issues.",
+      "Regular vehicle maintenance checks to ensure optimal performance and safety.",
+      "Effcient route planning and navigation using GPS technology.",
+    ],
+  },
+  {
+    title: "CEO",
+    company_name: "TBD",
+    icon: seeSpace,
+    iconBg: "#E6DEDD",
+    date: "TBD",
+    points: [
+      "TBD",
+    ],
+  },
+  {
+    title: "Warehouse Associate",
+    company_name: "Topline",
+    icon: topline,
+>>>>>>> e93a9f1c94dc60d5661ac894d9e44356b279130e
     iconBg: "#383E56",
     date: "April 2023 - July 2023",
     points: [
@@ -217,6 +250,14 @@ const testimonials = [
     designation: "Student",
     company: "University of Windsor",
     image: "https://freesvg.org/img/myAvatar.png",
+  },
+  {
+    testimonial:
+      "Mahmoud and I worked on a couple of projects together and I look forward to doing more.",
+    name: "Hala",
+    designation: "Student",
+    company: "University of Windsor",
+    image: "https://cdn4.vectorstock.com/i/1000x1000/21/63/avatar-a-young-woman-in-hijab-muslim-vector-29662163.jpg",
   },
 ];
 
@@ -283,6 +324,61 @@ const projects = [
     ],
     image: chatapp,
     source_code_link: "https://github.com/Mahmoud-s-programs/Chat-App",
+  },
+  {
+    name: "Web Calculator",
+    description:
+      "Do your math calculations on the web for free with an interesting animated background",
+    tags: [
+      {
+        name: "css",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "html",
+        color: "green-text-gradient",
+      },
+    ],
+    image: calc,
+    source_code_link: "https://github.com/Mahmoud-s-programs/Web-Calculator",
+  },
+  {
+    name: "Baisc Portfolio",
+    description:
+      "Use this template if you are not a developer or if you are a junior developer for, it is easy to modify",
+    tags: [
+      {
+        name: "css",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "html",
+        color: "green-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "pink-text-gradient",
+      }
+    ],
+    image: basicportfolio,
+    source_code_link: "https://github.com/Mahmoud-s-programs/basic-portfolio",
+  },  
+  {
+    name: "Solar System",
+    description:
+      "Are you a space nerd like me? Well now you can have the entire solar system on your computer. Follow the steps in the readme file to run the program",
+    tags: [
+      {
+        name: "java",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "java3D",
+        color: "green-text-gradient",
+      },
+    ],
+    image: solarsystem,
+    source_code_link: "https://github.com/Mahmoud-s-programs/Solar-System-using-java3D",
   },
 ];
 
