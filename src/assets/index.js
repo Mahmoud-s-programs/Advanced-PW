@@ -76,12 +76,9 @@ export {
   python,
   java,
   sql,
-<<<<<<< HEAD
-=======
   calc,
   basicportfolio,
   solarsystem,
   imageconverter,
->>>>>>> e93a9f1c94dc60d5661ac894d9e44356b279130e
   seeSpace,
 };

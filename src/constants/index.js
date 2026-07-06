@@ -172,37 +172,9 @@ const experiences = [
     ],
   },
   {
-<<<<<<< HEAD
     title: "Machine Operator",
     company_name: "Accu-Staff",
     icon: psg,
-=======
-    title: "Driver",
-    company_name: "Uber",
-    icon: uber,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
-    points: [
-      "Providing excellent customer service by addressing passenger inquiries and resolving any issues.",
-      "Regular vehicle maintenance checks to ensure optimal performance and safety.",
-      "Effcient route planning and navigation using GPS technology.",
-    ],
-  },
-  {
-    title: "CEO",
-    company_name: "TBD",
-    icon: seeSpace,
-    iconBg: "#E6DEDD",
-    date: "TBD",
-    points: [
-      "TBD",
-    ],
-  },
-  {
-    title: "Warehouse Associate",
-    company_name: "Topline",
-    icon: topline,
->>>>>>> e93a9f1c94dc60d5661ac894d9e44356b279130e
     iconBg: "#383E56",
     date: "April 2023 - July 2023",
     points: [
