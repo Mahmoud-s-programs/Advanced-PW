@@ -1,27 +1,33 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
+import { MotionConfig } from 'framer-motion';
+import { JourneyProvider } from './world/JourneyContext';
+import { useJourney } from './world/useJourney';
+import ForestScene from './world/ForestScene';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Tech from './components/Tech';
+import Works from './components/Works';
+import Experience from './components/Experience';
+import Feedbacks from './components/Feedbacks';
+import Contact from './components/Contact';
+import CustomCursor from './components/CustomCursor';
+import CinematicJourney from './world/CinematicJourney';
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
-
-const App = () => {
-  return (
-    <BrowserRouter>
-      <div className='relative z-0 bg-gray-950'>
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-          <Navbar />
-          <Hero />
-        </div>
-        <About />
-        <Experience />
-        <Tech />
-        <Works />
-        <Feedbacks />
-        <div className='relative z-0'>
-          <Contact />
-          <StarsCanvas />
-        </div>
-      </div>
-    </BrowserRouter>
-  );
+function Portfolio() {
+  const { reducedMotion } = useJourney();
+  return <MotionConfig reducedMotion={reducedMotion ? 'always' : 'never'}>
+    <a className="skip-link" href="#main">Skip to content</a>
+    <ForestScene />
+    <CinematicJourney />
+    <Navbar />
+    <main id="main" tabIndex="-1">
+      <Hero /><About /><Tech /><Works /><Experience /><Feedbacks /><Contact />
+    </main>
+    <CustomCursor />
+  </MotionConfig>;
 }
 
-export default App;
+export default function App() {
+  return <BrowserRouter><JourneyProvider><Portfolio /></JourneyProvider></BrowserRouter>;
+}

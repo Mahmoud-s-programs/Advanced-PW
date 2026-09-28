@@ -12,21 +12,22 @@ import {
   mongodb,
   git,
   docker,
-  psg,
   newsAg,
   apw,
   chatapp,
   threejs,
-  vosyn,
   sql,
   python,
   java,
   calc,
   basicportfolio,
   solarsystem,
-  imageconverter,
-  seeSpace,
+  ragPipeline,
+  multiAgentPipeline,
+  mlopsPipeline,
 } from "../assets";
+
+export const resumeLink = '/Mahmoud-Alkwisem-Resume-2026.pdf';
 
 export const navLinks = [
   {
@@ -117,83 +118,45 @@ const technologies = [
   },
 ];
 
+const additionalSkills = [
+  { name: "Go", group: "Languages", context: "Go is part of my software engineering language toolkit." },
+  { name: "C", group: "Languages", context: "C is part of my software engineering language toolkit." },
+  { name: "SQL", group: "Languages", context: "Queries and relational data across SQL Server, PostgreSQL and MySQL." },
+  { name: "XGBoost", group: "Machine learning", context: "The model stack for my end-to-end fraud detection pipeline." },
+  { name: "Transformers", group: "Machine learning", context: "Integrated with Llama 2 during voice synthesis development at Vosyn." },
+  { name: "LlamaIndex", group: "Machine learning", context: "Retrieval orchestration across 10,000+ pages in my RAG pipeline." },
+  { name: "LangGraph", group: "Machine learning", context: "Guarded state transitions and orchestration for four research agents." },
+  { name: "Ragas", group: "Machine learning", context: "Automated faithfulness and hallucination evaluation for my RAG pipeline." },
+  { name: "MLflow", group: "Machine learning", context: "Experiment tracking and monitoring in my MLOps pipeline." },
+  { name: "Spring Boot", group: "Backend & data", context: "Spring Boot is part of my backend development toolkit." },
+  { name: "Qdrant", group: "Backend & data", context: "Vector retrieval in my production-grade RAG pipeline." },
+  { name: "PostgreSQL", group: "Backend & data", context: "PostgreSQL is part of my relational database toolkit." },
+  { name: "MySQL", group: "Backend & data", context: "MySQL is part of my relational database toolkit." },
+  { name: "DVC", group: "Cloud & tools", context: "Versioned data across 50+ training iterations in my MLOps pipeline." },
+  { name: "GitHub Actions", group: "Cloud & tools", context: "Automated Docker releases in under 12 minutes for my MLOps pipeline." },
+  { name: "Azure", group: "Cloud & tools", context: "Azure is part of my cloud development toolkit." },
+  { name: "Claude Code", group: "AI development tools", context: "An AI development tool in my engineering workflow." },
+  { name: "OpenAI Codex", group: "AI development tools", context: "An AI development tool in my engineering workflow." },
+];
+
 const experiences = [
   {
-    title: "Forklift Operator",
-    company_name: "ProStaff",
-    icon: psg,
-    iconBg: "#383E56",
-    date: "October 2025 - Present",
+    title: "Machine Learning Developer",
+    company_name: "Fani's Lab",
+    date: "September 2024 - Present",
     points: [
-      "Safely operated forklifts and material handling equipment to move, load, and organize pallets and materials throughout the production floor.",
-      "Conducted daily equipment inspections and performed basic maintenance to ensure safe and efficient operation.",
-      "Verified inventory movement against work orders, maintaining 99% accuracy in material tracking and documentation.",
-      "Maintained accurate shipping and receiving logs to support efficient order fulfillment.",
-    ],
-  },
-  {
-    title: "General Labourer",
-    company_name: "Cleveland-Cliffs",
-    icon: psg,
-    iconBg: "#E6DEDD",
-    date: "July 2025 - October 2025",
-    points: [
-      "Performed part inspections to ensure compliance with quality standards and production requirements.",
-      "Stacked and organized parts efficiently to maintain workflow, minimize delays, and optimize shop floor space.",
-      "Operated laser machines to support production processes, maintaining precision and efficiency.",
-      "Assisted with forklift operations when needed, safely transporting materials and supporting team productivity during high-demand periods.",
-    ],
-  },
-  {
-    title: "Production Associate",
-    company_name: "The Job Shoppe",
-    icon: psg,
-    iconBg: "#383E56",
-    date: "November 2023 - November 2024",
-    points: [
-      "Operated and monitored high-volume industrial digital printers to produce custom marketing materials, ensuring 100% adherence to job specifications.",
-      "Consistently met or exceeded daily production targets in a fast-paced, lean manufacturing environment without compromising product quality.",
-      "Verified order details against production tickets to ensure accuracy in quantity, paper stock, and finishing options.",
-      "Contributed to a team that consistently hit 99% of production goals during peak holiday seasons.",
+      "Co-developed LADy, a Python toolkit for latent aspect detection in online reviews using NLP techniques.",
+      "Integrated LDA, CTM and neural models for topic modeling; helped design an Arabic review dataset for model training.",
     ],
   },
   {
     title: "Software Development Team Lead",
-    company_name: "Vosyn Inc",
-    icon: vosyn,
-    iconBg: "#E6DEDD",
+    company_name: "Vosyn",
     date: "July 2023 - October 2023",
     points: [
-      "Led a 25-member team in developing a voice synthesis platform using Python, TensorFlow, and PyTorch.",
-      "Built an MVP in 5 weeks using Python and Flask, exceeding industry speed benchmarks.",
-      "Integrated PaLM2 Large Language Model, VALL-E TTS and Transformers into our voice synthesis platform.",
-      "Maintained 100% transparency, providing weekly GCP and Git reports to 5+ stakeholders.",
-      "Optimized workflow with Jira and Docker, boosting team output by 20% and using TensorBoard for monitoring.",
-    ],
-  },
-  {
-    title: "Machine Operator",
-    company_name: "Accu-Staff",
-    icon: psg,
-    iconBg: "#383E56",
-    date: "April 2023 - July 2023",
-    points: [
-      "Operated injection molding machines, producing 200+ plastic components daily for automotive clients.",
-      "Assembled and inspected parts for visual and dimensional defects, maintaining 98% defect-free rate.",
-      "Conducted daily equipment checks and minor fixes to avoid unscheduled production stops.",
-      "Worked with team leads to meet shift targets and support JIT (just-in-time) manufacturing goals.",
-    ],
-  },
-  {
-    title: "General Labourer",
-    company_name: "Personnel By Elsie",
-    icon: psg,
-    iconBg: "#E6DEDD",
-    date: "May 2022 - September 2022",
-    points: [
-      "Loaded and aligned raw metal materials into hydraulic and mechanical stamping presses to maintain continuous production flow.",
-      "Performed visual inspections on stamped parts to identify defects such as burrs, cracks, dents, or missed punches.",
-      "Maintained a clean and organized work area (5S standards), removing metal shavings and oil to prevent slip-and-fall hazards.",
+      "Led a 12+ person team delivering a voice synthesis platform with Python, PyTorch and Tortoise TTS.",
+      "Integrated Llama 2 and Transformers; presented engineering progress weekly to 5+ stakeholders.",
+      "Introduced Jira task tracking and workflows, contributing to a reported 20% productivity increase.",
     ],
   },
 ];
@@ -201,7 +164,7 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "Mahmoud has helped me emmensly during the winter of 2022 when we built projects together",
+      "Mahmoud has helped me immensely during the winter of 2022 when we built projects together",
     name: "Ali Alsalkhadi ",
     designation: "Software developer",
     company: "University of Windsor",
@@ -209,7 +172,7 @@ const testimonials = [
   },
   {
     testimonial:
-      "I cannot thank Mahmoud enough for the beatiful portfolio he built for me",
+      "I cannot thank Mahmoud enough for the beautiful portfolio he built for me",
     name: "Ahmad Kouaissem",
     designation: "Student",
     company: "University of Windsor",
@@ -235,7 +198,46 @@ const testimonials = [
 
 const projects = [
   {
+    name: "Production-Grade RAG Pipeline",
+    short_name: "RAG Pipeline",
+    category: "Retrieval / Applied AI",
+    description: "Built retrieval over 10,000+ pages of financial and medical PDFs. Hybrid BM25/dense search with Cohere reranking improved precision 34%. Automated evaluation reached 92% average faithfulness and under 3% hallucinations; parent-child chunking reduced token use 25%.",
+    tags: [{ name: "LlamaIndex" }, { name: "Qdrant" }, { name: "Ragas" }],
+    image: ragPipeline,
+    image_size: [1440, 960],
+    image_alt: "Concept artwork: document fragments pass through an index and retrieval lens into an answer core.",
+    image_credit: "AI-generated concept artwork",
+    tint: "#92b5ad",
+  },
+  {
+    name: "Multi-Agent Autonomous Pipeline",
+    short_name: "Multi-Agent Pipeline",
+    category: "Agent systems / Research",
+    description: "Orchestrated four research agents with guarded state transitions, asynchronous execution and human review, reducing manual research time 85%. Enforced structured outputs with Pydantic, achieving a reported 99.8% successful execution rate across API model updates.",
+    tags: [{ name: "LangGraph" }, { name: "Python" }, { name: "Pydantic" }],
+    image: multiAgentPipeline,
+    image_size: [1440, 960],
+    image_alt: "Concept artwork: four specialized research modules connect to a central coordination hub and review gate.",
+    image_credit: "AI-generated concept artwork",
+    tint: "#d0a285",
+  },
+  {
+    name: "End-to-End MLOps Pipeline",
+    short_name: "MLOps Pipeline",
+    category: "Machine learning / Operations",
+    description: "Built a fraud detection pipeline for streaming transactions, with DVC versioning data across 50+ training iterations. Automated Docker/GitHub Actions releases to under 12 minutes; MLflow tracking and drift checks triggered retraining.",
+    tags: [{ name: "XGBoost" }, { name: "DVC" }, { name: "MLflow" }],
+    image: mlopsPipeline,
+    image_size: [1440, 960],
+    image_alt: "Concept artwork: transaction blocks move through a model, verification gate and monitoring feedback loop.",
+    image_credit: "AI-generated concept artwork",
+    tint: "#a2ba92",
+  },
+  {
     name: "News Aggregator",
+    category: "Web application",
+    image_size: [1440, 653],
+    tint: "#ddbd84",
     description:
       "Discover the latest news on any topic, anytime with my News Aggregator platform. my advanced, user-friendly system provides instant, relevant articles from trusted global sources.",
     tags: [
@@ -257,6 +259,10 @@ const projects = [
   },
   {
     name: "3D Portfolio Website",
+    short_name: "3D Portfolio",
+    category: "Interactive web / 3D",
+    image_size: [1440, 679],
+    tint: "#bfa8d6",
     description:
       "Experience the future of portfolios with my 3D website built using ReactJS and ThreeJS. This innovative platform showcases projects in an immersive, interactive 3D environment, bringing every detail to life.",
     tags: [
@@ -278,6 +284,9 @@ const projects = [
   },
   {
     name: "Chat app",
+    category: "Communication / Web",
+    image_size: [1014, 807],
+    tint: "#8eafae",
     description:
       "Experience secure, worry-free communication with my chat app, built using ReactJS. This platform allows seamless interaction with anyone, safeguarded by robust data privacy measures.",
     tags: [
@@ -299,6 +308,9 @@ const projects = [
   },
   {
     name: "Web Calculator",
+    category: "Web utility",
+    image_size: [839, 863],
+    tint: "#d7a782",
     description:
       "Do your math calculations on the web for free with an interesting animated background",
     tags: [
@@ -315,7 +327,10 @@ const projects = [
     source_code_link: "https://github.com/Mahmoud-s-programs/Web-Calculator",
   },
   {
-    name: "Baisc Portfolio",
+    name: "Basic Portfolio",
+    category: "Portfolio / Web",
+    image_size: [1440, 647],
+    tint: "#ccb991",
     description:
       "Use this template if you are not a developer or if you are a junior developer for, it is easy to modify",
     tags: [
@@ -337,6 +352,9 @@ const projects = [
   },  
   {
     name: "Solar System",
+    category: "Creative coding / 3D",
+    image_size: [1271, 855],
+    tint: "#9c9bc1",
     description:
       "Are you a space nerd like me? Well now you can have the entire solar system on your computer. Follow the steps in the readme file to run the program",
     tags: [
@@ -354,4 +372,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, additionalSkills, experiences, testimonials, projects };

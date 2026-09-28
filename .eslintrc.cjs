@@ -12,4 +12,9 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
   },
+  overrides: [{
+    files: ['src/world/*.jsx'],
+    // React Three Fiber uses Three.js properties rather than DOM attributes.
+    rules: { 'react/no-unknown-property': 'off' },
+  }],
 }

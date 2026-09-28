@@ -1,66 +1,14 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { testimonials } from '../constants';
+import { useJourney } from '../world/useJourney';
+import Reveal from './ui/Reveal';
 
-import { styles } from "../styles";
-import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
-import { testimonials } from "../constants";
-
-const FeedbackCard = ({
-  index,
-  testimonial,
-  name,
-  designation,
-  company,
-  image,
-}) => (
-  <motion.div
-    variants={fadeIn("", "spring", index * 0.5, 0.75)}
-    className='bg-gray-800 p-10 rounded-3xl xs:w-[320px] w-full'
-  >
-    <p className='text-slate-100 font-black text-[48px]'>"</p>
-
-    <div className='mt-1'>
-      <p className='text-slate-100 tracking-wider text-[18px]'>{testimonial}</p>
-
-      <div className='mt-7 flex justify-between items-center gap-1'>
-        <div className='flex-1 flex flex-col'>
-          <p className='text-slate-500 font-medium text-[16px]'>
-            <span className='blue-text-gradient'>@</span> {name}
-          </p>
-          <p className='mt-1 text-slate-400 text-[12px]'>
-            {designation} of {company}
-          </p>
-        </div>
-
-        <img
-          src={image}
-          alt={`feedback_by-${name}`}
-          className='w-10 h-10 rounded-full object-cover'
-        />
-      </div>
-    </div>
-  </motion.div>
-);
-
-const Feedbacks = () => {
-  return (
-    <div className={`mt-12 bg-gray-700 rounded-[20px]`}>
-      <div
-        className={`bg-gray-800 rounded-2xl ${styles.padding} min-h-[300px]`}
-      >
-        <motion.div variants={textVariant()}>
-          <p className={styles.sectionSubText}>What others say</p>
-          <h2 className={styles.sectionHeadText}>Testimonials.</h2>
-        </motion.div>
-      </div>
-      <div className={`-mt-20 pb-14 ${styles.paddingX} flex flex-wrap gap-7`}>
-        {testimonials.map((testimonial, index) => (
-          <FeedbackCard key={testimonial.name} index={index} {...testimonial} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default SectionWrapper(Feedbacks, "");
+export default function Feedbacks() {
+  const [index, setIndex] = useState(0);
+  const { reducedMotion } = useJourney();
+  const testimonial = testimonials[index];
+  return <section className='testimonials-section section-shell' aria-labelledby='testimonials-title'>
+    <Reveal className='testimonials-inner'><p className='eyebrow' id='testimonials-title'>Good company along the way</p><span className='quote-mark' aria-hidden='true'>“</span><div className='quote-stage' aria-live='polite'><AnimatePresence mode='wait' initial={false}><motion.figure key={index} initial={reducedMotion ? false : {opacity:0,y:10}} animate={{opacity:1,y:0}} exit={{opacity:0}} transition={{duration:reducedMotion ? 0 : .25}}><blockquote>{testimonial.testimonial}</blockquote><figcaption><span>{testimonial.name.trim()}</span><span>{testimonial.designation} · {testimonial.company}</span></figcaption></motion.figure></AnimatePresence></div><div className='quote-nav' role='group' aria-label='Choose a testimonial'>{testimonials.map((item,i) => <button key={item.name} aria-label={`Read testimonial from ${item.name.trim()}`} aria-pressed={index === i} className={index === i ? 'is-active' : ''} onClick={() => setIndex(i)}><span>{item.name.trim().split(' ').map((part) => part[0]).slice(0,2).join('')}</span></button>)}</div></Reveal>
+  </section>;
+}

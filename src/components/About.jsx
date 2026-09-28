@@ -1,67 +1,41 @@
-import React from "react";
-import Tilt from "react-parallax-tilt";
-import { motion } from "framer-motion";
+import { services } from '../constants';
+import Reveal from './ui/Reveal';
+import { Icon } from './ui/Icon';
+import { useJourney } from '../world/useJourney';
 
-import { styles } from "../styles";
-import { services } from "../constants";
-import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
+function RootStudy() {
+  return <figure className='root-study'>
+    <div className='root-code root-code-top'><span>01</span> curiosity.seed()</div>
+    <svg viewBox='0 0 480 480' className='root-diagram' aria-hidden='true'>
+      <defs><radialGradient id='root-glow'><stop stopColor='#f0a43b' stopOpacity='.13' /><stop offset='1' stopColor='#f0a43b' stopOpacity='0' /></radialGradient></defs>
+      <circle cx='240' cy='235' r='200' fill='url(#root-glow)' />
+      <g fill='none' stroke='#b58953' strokeWidth='1'>
+        <circle cx='240' cy='235' r='156' opacity='.14' strokeDasharray='2 9' /><circle cx='240' cy='235' r='100' opacity='.18' />
+        <path d='M240 70v270m0-220-68-42-54 17m122 52 58-47 67 5M240 176l-95-34-52 26m147 32 72-41 67 31M240 233l-64 28-45-8m109 17 76 25 48-15M240 309l-54 62-75 35m129-83 72 74 56 19M240 350l-19 60m19-44 34 64' />
+        <path d='m145 142 8-52m159 69 16-42m-152 144-45 53m185-19 25 46m-155 30-12-40' opacity='.4' />
+      </g>
+      {[ [240,70],[118,95],[365,105],[93,168],[379,190],[131,253],[364,280],[111,406],[368,416],[221,410],[274,430] ].map(([x,y],i) => <g key={i}><circle cx={x} cy={y} r='6' fill='#f0a43b' opacity='.08' /><circle cx={x} cy={y} r='2' fill='#d8aa69' /></g>)}
+      <circle cx='240' cy='235' r='9' fill='#f0a43b' opacity='.1' /><circle cx='240' cy='235' r='3' fill='#ffc66d' />
+    </svg>
+    <div className='root-code root-code-bottom'><span>02</span> ideas.grow()</div>
+    <figcaption>Rooted in logic. Growing through curiosity.</figcaption>
+  </figure>;
+}
 
-const ServiceCard = ({ index, title, icon }) => (
-  <Tilt
-    options={{
-      max: 45,
-      scale: 1,
-      speed: 450,
-    }}
-    className='xs:w-[250px] w-full'
-  >
-    <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-    >
-      <div
-        className=' bg-gray-800 rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
-      >
-        <img
-          src={icon}
-          alt='web-development'
-          className='w-16 h-16 object-contain'
-        />
-
-        <h3 className=' text-slate-500 text-[20px] font-bold text-center'>
-          {title}
-        </h3>
+export default function About() {
+  const { discover } = useJourney();
+  return <section id='about' className='chapter about-section section-shell' aria-labelledby='about-title'>
+    <Reveal className='chapter-label'><span>02 / BENEATH THE CANOPY</span><span className='fine-line' /></Reveal>
+    <div className='about-layout'>
+      <div className='about-copy'>
+        <Reveal><h2 id='about-title'>Curiosity<br />takes <em>root.</em></h2></Reveal>
+        <Reveal delay={0.12}><p className='lead'>A software engineer who likes to explore what comes next.</p><p>I work with Python and JavaScript, building with React, Node.js, and Three.js. I’m constantly experimenting with AI, and I’m drawn to ambitious projects that ask me to think a little differently.</p></Reveal>
+        <Reveal className='practice-list' delay={0.2}>
+          <p className='eyebrow'>Where my ideas grow</p>
+          {services.map((service,index) => <div className='practice' key={service.title}><span className='practice-number'>0{index+1}</span><span>{service.title}</span><Icon name='northeast' /></div>)}
+        </Reveal>
       </div>
-    </motion.div>
-  </Tilt>
-);
-
-const About = () => {
-  return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
-      </motion.div>
-
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-      >
-        I'm a software engineer with experience in Python and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm an innovator and work on AI conrinusouly. I like to work on projects that
-        others wouldn't dare touch.
-      </motion.p>
-
-      <div className='mt-20 flex flex-wrap gap-10'>
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
-        ))}
-      </div>
-    </>
-  );
-};
-
-export default SectionWrapper(About, "about");
+      <Reveal className='about-visual' delay={0.25}><RootStudy /><button className='forest-sign' onClick={() => discover('No bugs here. Only the occasional feature in the undergrowth.')} aria-label='Read the little forest sign'><span>↟</span> git checkout -- forest</button></Reveal>
+    </div>
+  </section>;
+}
