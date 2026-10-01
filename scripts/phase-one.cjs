@@ -1,0 +1,23 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const fs=require('node:fs');
+(async()=>{
+ fs.mkdirSync('tmp/spatial',{recursive:true});
+ const browser=await chromium.launch({headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1000}});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+ await page.goto('http://127.0.0.1:5173/?orbit',{waitUntil:'networkidle'});
+ await page.waitForFunction(()=>window.__AUTUMN_SCENE__);
+ await page.waitForTimeout(2500);
+ await page.screenshot({path:'tmp/spatial/phase1-hero.png'});
+ await page.addStyleTag({content:'main,#spatial-content,.site-header,.chapter-navigation,.custom-cursor,.skip-link,.forest-vignette,.film-grain{visibility:hidden!important}'});
+ await page.screenshot({path:'tmp/spatial/phase1-world.png'});
+ const original=await page.evaluate(()=>({...window.__AUTUMN_SCENE__.snapshot(),parallax:window.__AUTUMN_SCENE__.measureParallax()}));
+ await page.evaluate(()=>window.__AUTUMN_SCENE__.setCamera([10,6,12],[3,2,0]));
+ await page.waitForTimeout(800);await page.screenshot({path:'tmp/spatial/phase1-angle.png'});
+ await page.evaluate(()=>window.__AUTUMN_SCENE__.setLight(.12));
+ await page.waitForTimeout(800);await page.screenshot({path:'tmp/spatial/phase1-light.png'});
+ await page.evaluate(()=>{window.__AUTUMN_SCENE__.setLight(3.5);window.__AUTUMN_SCENE__.setCamera([0,5,9],[3,2,0]);});
+ await page.waitForTimeout(800);await page.screenshot({path:'tmp/spatial/phase1-sculpture-side.png'});
+ fs.writeFileSync('tmp/spatial/phase1.json',JSON.stringify({errors,original,alternate:await page.evaluate(()=>window.__AUTUMN_SCENE__.snapshot())},null,2));
+ console.log(JSON.stringify({errors,original}));await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

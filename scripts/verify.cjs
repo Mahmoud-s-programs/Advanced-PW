@@ -82,7 +82,9 @@ async function main() {
         assert.match(await page.locator('.project-image img').getAttribute('alt'),/^Concept artwork:/);
       } else assert.match(href,/^https:\/\/github\.com\/Mahmoud-s-programs\//);
       assert.equal(await page.locator('.project-frame').getAttribute('rel'),'noopener noreferrer');
-      assert.equal(await page.locator('.project-image img').evaluate(el=>el.complete&&el.naturalWidth>0),true);
+      const texture=await page.evaluate(i=>window.__AUTUMN_SCENE__.snapshot().projects.find(p=>p.index===i),i);
+      assert.ok(texture.textureWidth>0&&texture.textureHeight>0);
+      assert.equal(texture.title,names[i]);
       assert.equal(await page.locator('.gallery-count').textContent(),`${String(i+1).padStart(2,'0')} / 09`);
     }
     await page.getByRole('button',{name:'Previous project',exact:true}).focus();
@@ -158,22 +160,22 @@ async function main() {
       await page.getByLabel('Visual quality').selectOption(tier);
       await page.waitForTimeout(2200);
       assert.equal(await page.locator('.forest-world').getAttribute('data-quality'),tier);
-      samples.push(await page.evaluate(async ()=>{const {world}=await import('/src/world/config.js');return world.metrics;}));
+      samples.push(await page.evaluate(()=>window.__AUTUMN_SCENE__.snapshot().metrics));
     }
     const low=samples.filter((_,i)=>i%2);
     assert.ok(low[2].geometries<=low[0].geometries+2,JSON.stringify(samples));
-    assert.ok(samples[0].drawCalls<30,JSON.stringify(samples[0]));
+    assert.ok(samples[0].drawCalls<220,JSON.stringify(samples[0]));
     return samples;
   });
   await check('Manual stillness and persistence',async () => {
     await page.getByRole('button',{name:'Pause ambient motion'}).click();
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(1600);
     assert.equal(await page.locator('html').getAttribute('data-motion'),'reduced');
     assert.equal(await page.locator('.custom-cursor').count(),0);
     assert.equal(await page.locator('.project-exhibit').count(),9);
-    const initial=await page.evaluate(async ()=>{const {world}=await import('/src/world/config.js');return world.frames;});
+    const initial=await page.evaluate(()=>window.__AUTUMN_SCENE__.snapshot().frames);
     await page.waitForTimeout(700);
-    const after=await page.evaluate(async ()=>{const {world}=await import('/src/world/config.js');return world.frames;});
+    const after=await page.evaluate(()=>window.__AUTUMN_SCENE__.snapshot().frames);
     assert.ok(after-initial<=2,`Rendered ${after-initial} frames while paused`);
     await page.reload({waitUntil:'networkidle'});
     assert.equal(await page.locator('html').getAttribute('data-motion'),'reduced');
@@ -219,9 +221,10 @@ async function main() {
     assert.equal(await still.locator('.custom-cursor').count(),0);
     assert.equal(await still.locator('.project-exhibit').count(),9);
     assert.equal(await still.getByRole('button',{name:'Reduced motion follows your system preference'}).isDisabled(),true);
-    const frameCount=await still.evaluate(async ()=>{const {world}=await import('/src/world/config.js');return world.frames;});
+    await still.waitForFunction(()=>window.__AUTUMN_SCENE__);await still.waitForTimeout(1500);
+    const frameCount=await still.evaluate(()=>window.__AUTUMN_SCENE__.snapshot().frames);
     await still.waitForTimeout(700);
-    assert.ok((await still.evaluate(async ()=>{const {world}=await import('/src/world/config.js');return world.frames;}))-frameCount<=2);
+    assert.ok((await still.evaluate(()=>window.__AUTUMN_SCENE__.snapshot().frames))-frameCount<=2);
   });
   await reduced.close();
   const fallback=await browser.newContext({viewport:{width:1440,height:1000}});

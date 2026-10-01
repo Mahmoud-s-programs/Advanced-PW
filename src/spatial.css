@@ -1,0 +1,67 @@
+/* The world owns the entire viewport. Static artwork is only a WebGL fallback. */
+.forest-world[data-webgl="available"] .forest-fallback {display:none}
+.forest-reading-shade,.forest-twilight {display:none}
+.forest-vignette {z-index:1;opacity:.32}
+.film-grain {z-index:2;pointer-events:none}
+.hero {justify-content:flex-start;text-align:left;min-height:780px}
+.hero-content {width:52%;margin-top:0}
+.hero-eyebrow,.hero-actions {justify-content:flex-start}
+.hero-eyebrow {margin-bottom:30px}
+.hero-name {font-size:clamp(88px,9vw,150px)}
+.hero-description {margin:32px 0 26px;max-width:370px}
+.hero-actions {flex-wrap:wrap;gap:22px}
+#spatial-content {position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+#spatial-content button,#spatial-content a {pointer-events:auto}
+.sculpture-controls {position:absolute;right:12%;bottom:15%;text-align:center;font-size:10px;z-index:3}
+.sculpture-controls>span {font:italic 25px var(--font-display);color:#ead3ad}
+.sculpture-controls>div {display:flex;gap:18px;margin-top:12px}
+.sculpture-controls button {font-size:9px;letter-spacing:.04em;border-bottom:1px solid #8b7050;padding:8px 0;color:#f1dbc0}
+.world-skill.skill-node {position:static;transform:none!important;padding:8px 11px;white-space:nowrap;background:rgba(23,23,22,.93);font-size:11px;box-shadow:0 8px 30px #0003;min-height:38px}
+.world-skill.skill-node img {width:16px;height:16px}
+.world-skill.skill-node.is-active {border-color:#ffd08c;background:#493723}
+.world-project-link {display:flex;flex-direction:column;gap:5px;align-items:center;text-align:center;white-space:nowrap;background:#181613e8;border:1px solid #bda17666;padding:12px 22px;border-radius:3px;color:#f5dfba}
+.world-project-link span {font-size:8px;color:#d0bea8}
+.world-project-link strong {font-size:11px;font-weight:500}
+.world-milestone {display:flex;flex-direction:column;gap:6px;background:#1b1919f0;border:1px solid #967951;padding:15px 20px;text-align:left;white-space:nowrap;color:#f6dec2}
+.world-milestone span {font-size:9px;color:#cdbcab}
+.world-milestone strong {font:30px var(--font-display)}
+.world-milestone[aria-pressed=true] {border-color:#ffcb7b;background:#382b21}
+[data-spatial=interactive] .about-section {min-height:1050px}
+[data-spatial=interactive] .about-copy {max-width:440px;padding:24px;background:linear-gradient(90deg,#181411c9,#18141155,transparent);margin-left:-24px}
+[data-spatial=interactive] .about-visual .root-study {visibility:hidden}
+[data-spatial=interactive] .skills-section {padding-top:120px;min-height:1250px}
+[data-spatial=interactive] .skills-section h2 {font-size:64px}
+[data-spatial=interactive] .skills-intro {max-width:330px;margin-top:15px}
+[data-spatial=interactive] .skill-filters {max-width:560px;flex-wrap:wrap;margin-top:25px}
+.skills-world-space {height:430px}
+[data-spatial=interactive] .extended-toolkit {background:#191818e8;padding:25px;border-top:1px solid #af8b5355}
+[data-spatial=interactive] .skill-context {text-align:left;max-width:345px;background:#191818ed;padding:15px 20px;margin-top:24px}
+[data-spatial=interactive] .gallery-heading h2 {font-size:54px}
+[data-spatial=interactive] .gallery-heading>p {display:none}
+[data-spatial=interactive] .gallery-stage {align-items:center}
+[data-spatial=interactive] .project-exhibit {display:block;width:38%;max-width:430px;padding:24px;background:linear-gradient(90deg,#171719e8,#171719c4,transparent);border-left:1px solid #b6966355}
+[data-spatial=interactive] .project-exhibit>.project-frame {display:none}
+[data-spatial=interactive] .project-copy h3 {font-size:47px}
+[data-spatial=interactive] .project-copy>p:not(.eyebrow) {color:#e0d0bc}
+[data-spatial=interactive] .gallery-controls {padding:16px 20px 8px;background:#171719ed;border-top:1px solid #b6966344}
+[data-spatial=interactive] .gallery-project-nav button {font-size:9px;color:#d0bda5}
+[data-spatial=interactive] .experience-section {min-height:1250px;padding-top:120px}
+[data-spatial=interactive] .experience-layout {display:block}
+[data-spatial=interactive] .experience-heading {position:static;width:44%}
+[data-spatial=interactive] .experience-heading h2 {font-size:70px}
+[data-spatial=interactive] .experience-trail {width:44%;margin-top:45px;background:#1a1920db;padding:24px}
+[data-spatial=interactive] .experience-trail .trail-path,[data-spatial=interactive] .trail-marker {display:none}
+[data-spatial=interactive] .experience-details li {color:#deccbb}
+[data-spatial=interactive] .testimonials-section {background:linear-gradient(0deg,#19131be8,#19131b88,transparent)}
+[data-spatial=interactive] .contact-layout {padding-top:90px;gap:15%}
+[data-spatial=interactive] .contact-copy {text-shadow:0 2px 16px #26150e}
+[data-spatial=interactive] .contact-form-wrap {background:#201811ed;padding:32px;border:1px solid #f8d5a329}
+[data-spatial=interactive] .site-footer {background:#201811dd;padding-inline:25px}
+[data-spatial=static] main {background:linear-gradient(180deg,transparent 600px,#181411df 1050px,#181411e8 90%,#211810cc)}
+@media(max-width:699px) {
+ .hero {align-items:flex-start;padding-top:130px;min-height:850px}
+ .hero-content {width:100%}
+ .hero-name {font-size:clamp(68px,18vw,105px)}
+ .hero-description {max-width:280px;font-size:11px}
+ .hero-actions {align-items:flex-start;gap:16px}
+}

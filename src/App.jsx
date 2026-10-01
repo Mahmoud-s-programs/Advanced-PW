@@ -19,6 +19,7 @@ function Portfolio() {
   return <MotionConfig reducedMotion={reducedMotion ? 'always' : 'never'}>
     <a className="skip-link" href="#main">Skip to content</a>
     <ForestScene />
+    <aside id='spatial-content' aria-label='Explore the autumn world' />
     <CinematicJourney />
     <Navbar />
     <main id="main" tabIndex="-1">

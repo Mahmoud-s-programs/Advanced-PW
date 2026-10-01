@@ -62,7 +62,7 @@ export const haloFragment = `
     float caustic = pow(0.5 + 0.5 * waves, 14.0);
     float ring = exp(-pow((r - 0.65) * 33.0, 2.0));
     float glow = exp(-r * r * 6.0) * 0.08;
-    float alpha = (caustic * 0.065 + ring * 0.18 + glow) * smoothstep(1.0, 0.35, r);
+    float alpha = (caustic * 0.065 + ring * 0.18 + glow) * (1.0 - smoothstep(0.35, 1.0, r));
     gl_FragColor = vec4(1.0, 0.59 + uProgress * 0.12, 0.24, alpha);
   }
 `;

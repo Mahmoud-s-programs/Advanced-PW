@@ -59,7 +59,7 @@ export function AmberSculpture({ scale = 1, interactive = false }) {
   const open = useRef(0);
   useEffect(() => () => geometry.dispose(), [geometry]);
   useFrame((_, delta) => {
-    const target = interactive && world.unfolded ? 1 : world.sequence.arrival * 0.35;
+    const target = interactive && world.unfolded ? 1 : 0.32 + world.sequence.arrival * 0.35;
     open.current += (target - open.current) * (reducedMotion ? 1 : Math.min(1, delta * 4));
     root.current.rotation.y = (interactive ? world.orbit : 0) + world.sequence.arrival * 0.75 + (reducedMotion || world.time < world.dragUntil ? 0 : world.time * 0.065);
     root.current.rotation.z = -0.14 + (reducedMotion ? 0 : Math.sin(world.time * 0.22) * 0.025);
@@ -76,8 +76,8 @@ export function AmberSculpture({ scale = 1, interactive = false }) {
     <AmberCore scale={0.83} />
     {Array.from({length:6}, (_, i) => <group key={i} rotation={[0,i*Math.PI/3,0]} position={[0,-1.65,0]}>
       <group ref={el => { petals.current[i] = el; }}>
-        <mesh geometry={geometry}>
-          <meshPhysicalMaterial color={i % 2 ? '#c47a2e' : '#e6b473'} roughness={0.16} metalness={0.25} transmission={0.36} thickness={0.65} clearcoat={1} clearcoatRoughness={0.15} side={DoubleSide} transparent opacity={0.8} envMapIntensity={1.5} />
+        <mesh castShadow geometry={geometry}>
+          <meshPhysicalMaterial color={i % 2 ? '#b77938' : '#e6b473'} roughness={0.24} metalness={0.65} clearcoat={1} clearcoatRoughness={0.15} side={DoubleSide} envMapIntensity={1.5} />
         </mesh>
         <mesh><tubeGeometry args={[spine,42,0.013,5,false]} /><meshStandardMaterial color='#e5bf75' metalness={0.9} roughness={0.22} /></mesh>
       </group>

@@ -5,6 +5,17 @@ import { Color, DoubleSide, Object3D, Vector3 } from 'three';
 import { barkGeometry, mapleGeometry } from './geometry';
 import { palette, seededRandom, world } from './config';
 
+function groundShader(shader) {
+  shader.vertexShader='varying vec3 vGround;\n'+shader.vertexShader;
+  shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvGround=position;');
+  shader.fragmentShader='varying vec3 vGround;\n'+shader.fragmentShader;
+  shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+    float grain=fract(sin(dot(floor(vGround.xy*18.0),vec2(12.9898,78.233)))*43758.5453);
+    float moss=sin(vGround.x*1.8+sin(vGround.y*.3))*sin(vGround.y*2.1);
+    diffuseColor.rgb*=.65+grain*.55+moss*.12;
+  `);
+}
+
 export default function AutumnEnvironment({ settings, reducedMotion }) {
   const trunks = useRef(), branches = useRef(), foliage = useRef(), forest = useRef();
   const [bark, maple] = useMemo(() => [barkGeometry(), mapleGeometry()], []);
@@ -15,7 +26,7 @@ export default function AutumnEnvironment({ settings, reducedMotion }) {
       const near = i < 4;
       return {
         x: side * (near ? 5.4 + random() * 2.2 : 4.2 + random() * 22),
-        z: near ? 4 - i * 3.2 : -4 - random() * 57,
+        z: near ? 4 - i * 3.2 : -4 - random() * 143,
         height: near ? 12 + random() * 3 : 7 + random() * 8,
         radius: near ? 0.38 + random() * 0.2 : 0.14 + random() * 0.32,
         seed: random() * 100,
@@ -69,26 +80,26 @@ export default function AutumnEnvironment({ settings, reducedMotion }) {
   useFrame((_, delta) => {
     if (reducedMotion) return;
     // The trees part at the final overlook, opening the horizon at contact.
-    const opening = Math.max(0, (world.progress - 0.78) / 0.22);
-    forest.current.scale.x += (1 + opening * 0.6 - forest.current.scale.x) * Math.min(delta * 2, 1);
+    const opening = Math.max(0, (world.route.mood - 0.88) / 0.12);
+    forest.current.scale.x += (1 + opening * 0.15 - forest.current.scale.x) * Math.min(delta * 2, 1);
     foliage.current.rotation.z = Math.sin(world.time * 0.11) * 0.002;
   });
 
   useEffect(() => () => { bark.dispose(); maple.dispose(); }, [bark, maple]);
 
   return <group ref={forest}>
-    <instancedMesh ref={trunks} args={[bark, null, settings.trees]} frustumCulled={false}>
+    <instancedMesh castShadow receiveShadow ref={trunks} args={[bark, null, settings.trees]} frustumCulled={false}>
       <meshStandardMaterial vertexColors roughness={1} />
     </instancedMesh>
-    <instancedMesh ref={branches} args={[bark, null, settings.trees * 7]} frustumCulled={false}>
+    <instancedMesh castShadow ref={branches} args={[bark, null, settings.trees * 7]} frustumCulled={false}>
       <meshStandardMaterial color="#3d281e" roughness={1} />
     </instancedMesh>
     <instancedMesh ref={foliage} args={[maple, null, settings.canopy]} frustumCulled={false}>
       <meshStandardMaterial side={DoubleSide} roughness={0.83} metalness={0.06} />
     </instancedMesh>
-    <mesh rotation={[-Math.PI/2,0,0]} position={[0,-1.05,-22]}>
-      <planeGeometry args={[120,160,1,1]} />
-      <meshStandardMaterial color="#30211a" roughness={1} />
+    <mesh receiveShadow rotation={[-Math.PI/2,0,0]} position={[0,-1.05,-62]}>
+      <planeGeometry args={[220,260,1,1]} />
+      <meshStandardMaterial color="#211e17" roughness={1} onBeforeCompile={groundShader} />
     </mesh>
   </group>;
 }

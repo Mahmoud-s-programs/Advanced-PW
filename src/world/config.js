@@ -26,6 +26,7 @@ export const world = {
   orbit: 0, unfolded: false, dragUntil: 0,
   sequence: { arrival: 0, skills: 0, archive: 0, career: 0 },
   invalidate: null, lenis: null,
+  route: {x:0,y:3.4,z:16,tx:0,ty:2.3,tz:-3,mood:0,fog:.026,key:3.5},
 };
 
 export function seededRandom(seed = 79) {

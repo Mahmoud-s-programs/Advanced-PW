@@ -13,7 +13,7 @@ export default function LeafSystem({ count, reducedMotion }) {
     const random = seededRandom(118);
     return Array.from({ length: count }, (_, i) => ({
       x: (random() - 0.5) * 27,
-      z: random() * 35 - 23,
+      z: i < 12 ? random() * 35 - 23 : random() * 143 - 139,
       phase: random() * Math.PI * 2,
       speed: 0.18 + random() * 0.38,
       size: i === 0 ? 0.5 : 0.07 + random() * 0.18,
@@ -44,6 +44,7 @@ export default function LeafSystem({ count, reducedMotion }) {
   };
 
   useLayoutEffect(() => {
+    world.leafDepths = leaves.map(leaf => leaf.z);
     const color = new Color();
     leaves.forEach((_, i) => mesh.current.setColorAt(i, color.set(i % 5 === 0 ? palette.amber : i % 2 ? palette.orange : palette.ember)));
     mesh.current.instanceColor.needsUpdate = true;

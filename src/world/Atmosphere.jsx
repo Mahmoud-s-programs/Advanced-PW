@@ -25,7 +25,7 @@ export default function Atmosphere({ settings, reducedMotion }) {
     return new Float32Array(Array.from({ length: settings.dust * 3 }, (_, i) => i % 3 === 0 ? (random()-.5)*34 : i % 3 === 1 ? random()*12 : random()*40-28));
   }, [settings.dust]);
   useFrame((_, delta) => {
-    const progress = world.progress;
+    const progress = Math.sin(world.route.mood*Math.PI)*.85;
     sky.current.uniforms.dusk.value += (progress - sky.current.uniforms.dusk.value) * Math.min(delta,0.1);
     if (!reducedMotion) {
       dust.current.rotation.y = Math.sin(world.time * 0.025) * 0.06;
@@ -34,12 +34,12 @@ export default function Atmosphere({ settings, reducedMotion }) {
     }
   });
   return <>
-    <mesh position={[0,10,-78]}>
-      <planeGeometry args={[180,100]} />
+    <mesh position={[0,45,-280]}>
+      <planeGeometry args={[700,350]} />
       <shaderMaterial ref={sky} uniforms={uniforms} vertexShader={skyVertex} fragmentShader={skyFragment} depthWrite={false} />
     </mesh>
-    <mesh position={[13,10,-63]}>
-      <circleGeometry args={[3.1,48]} />
+    <mesh position={[22,24,-235]}>
+      <circleGeometry args={[9,64]} />
       <meshBasicMaterial color="#ffdba5" transparent opacity={0.65} fog={false} />
     </mesh>
     <group ref={rays}>

@@ -7,6 +7,7 @@ import { useJourney } from '../world/useJourney';
 import Magnetic from './ui/Magnetic';
 import Reveal from './ui/Reveal';
 import { Icon } from './ui/Icon';
+import { setContent, goToProject } from '../world/contentStore';
 
 const collection = [projects[0], projects[1], projects[2], projects[4], projects[3], projects[5], projects[8], projects[6], projects[7]];
 const number = (value) => String(value).padStart(2, '0');
@@ -45,10 +46,11 @@ function ProjectExhibit({ project, index, compact = false }) {
 
 export default function Works() {
   const section = useRef();
-  const { reducedMotion } = useJourney();
+  const { reducedMotion, webgl } = useJourney();
   const [mobile, setMobile] = useState(() => window.innerWidth < 900 || window.innerHeight < 680);
   const [index, setIndex] = useState(0);
-  const simple = mobile || reducedMotion;
+  const simple = mobile || reducedMotion || !webgl;
+  useEffect(()=>{setContent({project:index});},[index]);
   useEffect(() => {
     const media = window.matchMedia('(max-width: 899px), (max-height: 679px)');
     const change = () => setMobile(media.matches);
@@ -74,9 +76,7 @@ export default function Works() {
   const select = (next) => {
     const desired = Math.max(0,Math.min(collection.length-1,next));
     setIndex(desired);
-    const start = section.current.getBoundingClientRect().top + window.scrollY;
-    const travel = section.current.offsetHeight - window.innerHeight;
-    window.scrollTo({top:start + travel / collection.length * (desired+.22), behavior:reducedMotion ? 'instant' : 'smooth'});
+    goToProject(desired,reducedMotion);
   };
   return <section ref={section} id='projects' className={`chapter projects-section ${simple ? 'gallery-simple' : 'gallery-immersive'}`} style={{'--gallery-length':collection.length}} aria-labelledby='projects-title'>
     <div className={`gallery-inner section-shell ${simple ? '' : 'gallery-sticky'}`} onKeyDown={(event) => {

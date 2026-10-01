@@ -28,6 +28,7 @@ function automaticQuality() {
 export function JourneyProvider({ children }) {
   const systemReduced = useMedia('(prefers-reduced-motion: reduce)');
   const touch = useMedia('(hover: none), (pointer: coarse)');
+  const compact = useMedia('(max-width: 899px), (max-height: 679px)');
   const [paused, setPaused] = useState(() => readPreference('autumn-motion', 'on') === 'off');
   const [qualityPreference, setQualityPreference] = useState(() => {
     const stored = readPreference('autumn-quality', 'auto');
@@ -43,6 +44,7 @@ export function JourneyProvider({ children }) {
   const timeout = useRef();
   const reducedMotion = systemReduced || paused;
   const quality = qualityPreference === 'auto' ? automaticTier : qualityPreference;
+  const spatial = webgl && !reducedMotion && !compact;
 
   const discover = useCallback((message) => {
     world.gustUntil = world.time + 2.4;
@@ -54,6 +56,10 @@ export function JourneyProvider({ children }) {
   const degrade = useCallback(() => {
     setAutomaticTier((tier) => tier === 'high' ? 'medium' : 'low');
   }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.spatial = spatial ? 'interactive' : 'static';
+  }, [spatial]);
 
   useEffect(() => {
     let raf = 0;
@@ -120,7 +126,7 @@ export function JourneyProvider({ children }) {
     } catch { /* Storage can be unavailable in private browsing. */ }
   }, [paused, reducedMotion, qualityPreference]);
 
-  return <JourneyContext.Provider value={{ active, reducedMotion, systemReduced, paused, setPaused, touch, quality, qualityPreference, setQualityPreference, visible, degrade, discover, webgl, spatialReady, setSpatialReady, reportSceneFailure }}>
+  return <JourneyContext.Provider value={{ active, reducedMotion, systemReduced, paused, setPaused, touch, quality, qualityPreference, setQualityPreference, visible, degrade, discover, webgl, spatialReady, setSpatialReady, reportSceneFailure, spatial }}>
     {children}
     <div className={`discovery-toast ${discovery ? 'is-visible' : ''}`} role="status">{discovery}</div>
   </JourneyContext.Provider>;
